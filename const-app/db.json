@@ -1,15 +1,44 @@
 {
   "projects": [
     {
-      "name": "Meta do Milhão",
-      "budget": "1000000",
+      "name": "Desenvolvedor Fortan",
+      "budget": "15000",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 3000,
+      "services": [
+        {
+          "name": "Layout Web com Fortan",
+          "cost": "3000",
+          "description": "É realmente possível?",
+          "id": "aa8d1367-3f2e-4eeb-a6e0-b7c1af58cb29"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Desenvolvedor COBOL",
+      "budget": "4500",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": [],
-      "id": 1
+      "id": 2
+    },
+    {
+      "name": "Desenvolvedor Assembly",
+      "budget": "5000",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 3
     }
   ],
   "categories": [

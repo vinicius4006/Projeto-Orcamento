@@ -1,17 +1,25 @@
+import { parse, v4 as uuidv4 } from "uuid"
+
 import styles from "../pages/EditionProject.module.css"
+
 import {useParams} from "react-router-dom"
 import { useState, useEffect } from "react"
+
 import api from "../../api"
+
 import Loading from "../layout/Loading"
 import Container from "../layout/Container"
 import ProjectForm from "../project/ProjectForm"
 import MotionPage from "../../animations/MotionPage"
 import Message from "../layout/Message"
+import ServiceForm from "../services/ServiceForm"
+import ServiceCard from "../services/ServiceCard"
 
 function EditionProject(){
 
     const { id } = useParams() //Consigo pegar o id do meu projeto
     const[project, setProject] = useState([])
+    const[services, setServices] = useState([])
     const [showProjectForm, setShowProjectForm] = useState(false)
     const [showServiceForm, setShowServiceForm] = useState(false)
     const [message, setMessage] = useState()
@@ -23,7 +31,10 @@ function EditionProject(){
         setTimeout(() => {
             api
            .get(`/projects/${id}`)
-            .then((response) => setProject(response.data))
+            .then((response) => {
+                setProject(response.data)
+                setServices(response.data.services)
+            })
             .catch((err) => {
                 console.error(err)
        })
@@ -71,6 +82,74 @@ function EditionProject(){
               
         
 
+    }
+    function createService(){
+        setMessage("")
+
+        const lastService = project.services[project.services.length - 1]
+        lastService.id = uuidv4()
+
+        const lastServiceCost = lastService.cost
+
+        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+
+        // maximum value validation
+
+        if(newCost > parseFloat(project.budget)){
+            setMessage("Orçamento ultrapassado, verifique o valor do serviço")
+            setType("error")
+            project.services.pop()
+            return false
+        }
+
+        // add service cost to project total cost
+
+        project.cost = newCost
+
+        //update cost
+        fetch(`http://localhost:5000/projects/${project.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(project)
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            //exibir o serviço
+            console.log(data)
+            setShowServiceForm(false)
+        })
+        .catch(err => alert(err))
+
+            
+    }
+    function removeService(id,cost){
+        setMessage("")
+        const servicesUpdated = project.services.filter(
+            (service) => service.id !== id
+        )
+            const projectUpdated = project
+            projectUpdated.services = servicesUpdated
+            projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
+
+            fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(projectUpdated)
+            })
+            .then(resp => {
+                resp.json()
+            })
+            .then(() => {
+                 setProject(projectUpdated)
+                 setServices(servicesUpdated)
+                 setMessage("Serviço removido com sucesso!")
+                 setType("sucess")
+            })
+            .catch(err => alert(err))
     }
 
     function toogleProjectForm(){
@@ -128,11 +207,35 @@ function EditionProject(){
                                          
                     <div className={styles.project_info}>
                         
-                                {showServiceForm && <MotionPage><div>formulário de serviço</div></MotionPage>}
+                                {showServiceForm && <MotionPage><div>
+                                    <ServiceForm 
+                                    handleSubmit={createService}
+                                    btnText="Adicionar serviço"
+                                    projectData={project}
+                                    />
+                                     
+                                    </div></MotionPage>}
                     </div>
                     <h2>Serviços</h2>
                     <Container customClass="start">
-                           <p>Itens de serviços</p>
+                           {
+                               services.length > 0 &&
+                                services.map((service) => (
+                                    <ServiceCard 
+                                    id={service.id}
+                                    name={service.name}
+                                    cost={service.cost}
+                                    key={service.id}
+                                    description={service.description}
+                                    handleRemove={removeService}
+                                    
+                                    
+                                    />
+                                ))
+                           }
+                           {
+                               services.length === 0 && <p>Não há serviços cadastrados</p>
+                           }
                     </Container>
                     </div>
                   
