@@ -8,6 +8,7 @@ import Container from "./components/layout/Container";
 import Footer from "./components/layout/Footer";
 import Projects from "./components/pages/Projects";
 import MotionPage from "./animations/MotionPage";
+import EditionProject from "./components/pages/EditionProject";
 
 function App() {
   return (
@@ -39,6 +40,11 @@ function App() {
           <Route exact path="/projects">
             <MotionPage>
             <Projects />
+            </MotionPage>
+          </Route>
+          <Route exact path="/projects/:id">
+            <MotionPage>
+            <EditionProject />
             </MotionPage>
           </Route>
           </Container>

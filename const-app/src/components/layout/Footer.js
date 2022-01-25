@@ -25,7 +25,7 @@ function Footer(){
                 </li>
             </ul>
             <p className={styles.copy_right}>
-                <span>Júpiter Telecom</span> &copy;2021
+                Copyright &copy;2022 <span>Júpiter Telecomunicações</span>. Todos os direitos reservados. 
             </p>
         </footer>
     )

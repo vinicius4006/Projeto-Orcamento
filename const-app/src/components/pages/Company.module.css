@@ -1,0 +1,48 @@
+.company_container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4em;
+    margin-left: 100px;
+    
+   
+}
+
+.company_container h1 span
+{
+    color: #fc7f03c7;
+    padding: 0 0.2em;
+    background-color: rgba(26, 25, 24, 0.082);
+    border-radius: 15px;
+    box-shadow: 0 0 1em #ffbb33;
+}
+
+.company_container h1
+{
+    font-size: 2.5em;
+    margin-bottom: .5em;
+}
+
+.company_container p {
+    margin-bottom: 1.5em;
+    font-size: larger;
+    color: #7b7b7b;
+}
+.pfont {
+    width: 70%;
+    font-size: larger;
+    font-weight: 400;
+    padding: 10px;
+    line-height: 2em;
+}
+
+h1 strong, p strong
+{
+   
+    color: #1f9bccc7;
+    padding: 0 0.2em;
+    
+}
