@@ -9,6 +9,7 @@ import Footer from "./components/layout/Footer";
 import Projects from "./components/pages/Projects";
 import MotionPage from "./animations/MotionPage";
 import EditionProject from "./components/pages/EditionProject";
+import EditionService from "./components/pages/EditionService";
 
 function App() {
   return (
@@ -47,6 +48,12 @@ function App() {
             <EditionProject />
             </MotionPage>
           </Route>
+          <Route  path="/projects/:id/editionservice">
+            <MotionPage>
+            <EditionService />
+            </MotionPage>
+          </Route>
+          
           </Container>
           
         </Switch>

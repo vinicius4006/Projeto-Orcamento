@@ -24,6 +24,7 @@ function EditionProject(){
     const [showServiceForm, setShowServiceForm] = useState(false)
     const [message, setMessage] = useState()
     const [type, setType] = useState()
+    const [editGo, setEditGo] = useState(false)
 
     //substituir o fetch pelo axios, lembrando que atualiza e ele não entra
     
@@ -61,6 +62,7 @@ function EditionProject(){
           //  .catch(err => {
            //     alert(err)
           //  })
+
             fetch(`http://localhost:5000/projects/${id}`, {
                method : "PATCH",
                 headers : {
@@ -79,9 +81,6 @@ function EditionProject(){
            .catch(err => {
                alert(err)
            })
-              
-        
-
     }
     function createService(){
         setMessage("")
@@ -152,6 +151,9 @@ function EditionProject(){
             .catch(err => alert(err))
     }
 
+    function editService(id, cost, name, description){
+      setEditGo(true)
+    }
     function toogleProjectForm(){
         
         setShowProjectForm(!showProjectForm)
@@ -228,11 +230,13 @@ function EditionProject(){
                                     key={service.id}
                                     description={service.description}
                                     handleRemove={removeService}
-                                    
+                                    handleEdit={editService}
                                     
                                     />
+                                    
                                 ))
                            }
+                           
                            {
                                services.length === 0 && <p>Não há serviços cadastrados</p>
                            }
