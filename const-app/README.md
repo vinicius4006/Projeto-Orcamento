@@ -7,9 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Projeto de orçamento, desenvolvido através do curso React com Matheus Battisti.
 <p align="center">
-  <img width="240" height="427" src="https://github.com/vinicius4006/Projeto-Orcamento/blob/master/const-app/src/img/Projeto-de-Custos.jpeg">
-  <img width="240" height="427" src="https://github.com/vinicius4006/Projeto-Orcamento/blob/master/const-app/src/img/registo-custo.jpeg">
-  <img width="240" height="427" src="https://github.com/vinicius4006/Projeto-Orcamento/blob/master/const-app/src/img/salvo-edicao.jpeg">
+  <img width="620" height="405" src="https://github.com/vinicius4006/Projeto-Orcamento/blob/master/const-app/src/img/Projeto-de-Custos.jpeg">
+  <img width="620" height="405" src="https://github.com/vinicius4006/Projeto-Orcamento/blob/master/const-app/src/img/registo-custo.jpeg">
+  <img width="620" height="405" src="https://github.com/vinicius4006/Projeto-Orcamento/blob/master/const-app/src/img/salvo-edicao.jpeg">
 </p>
 
 <p> Ao criar um projeto você seleciona sua categoria e o seu custo toal</p>
