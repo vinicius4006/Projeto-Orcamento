@@ -1,35 +1,26 @@
-# Getting Started with Create React App
+React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Projeto Orçamento
 
-# expenses
 
 Projeto de orçamento, desenvolvido através do curso React com Matheus Battisti.
 <p align="center">
-  <img width="240" height="427" src="https://github.com/vinicius4006/curso_flutter_expenses/blob/master/assets/images/inicial.png">
-  <img width="240" height="427" src="https://github.com/vinicius4006/curso_flutter_expenses/blob/master/assets/images/form.png">
-  <img width="240" height="427" src="https://github.com/vinicius4006/curso_flutter_expenses/blob/master/assets/images/result.png">
+  <img width="240" height="427" src="https://github.com/vinicius4006/Projeto-Orcamento/blob/master/const-app/src/img/Projeto-de-Custos.jpeg">
+  <img width="240" height="427" src="https://github.com/vinicius4006/Projeto-Orcamento/blob/master/const-app/src/img/registo-custo.jpeg">
+  <img width="240" height="427" src="https://github.com/vinicius4006/Projeto-Orcamento/blob/master/const-app/src/img/salvo-edicao.jpeg">
 </p>
 
-<p> O n</p>
-<p> O quadro no início do App indica a porcentagem dos gastos ao decorrer da semana</p>
-<p> É possível excluir e escolher a data do dia em que o gasto foi realiazado</p>
+<p> Ao criar um projeto você seleciona sua categoria e o seu custo toal</p>
+<p> ao criar você pode editar colocando os serviços.</p>
+<p> É possível excluir e escolher a data do dia em que o gasto foi realizado</p>
 
 O importante é continuar caminhando, em algum momento você chega!
 ## Getting Started
 
-Basta baixar o projeto e rodar na sua máquina através do flutter no Android Studio ou iOS simulator.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
 
 In the project directory, you can run:
